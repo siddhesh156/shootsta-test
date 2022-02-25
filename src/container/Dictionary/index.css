@@ -1,0 +1,16 @@
+.main-container{
+    margin: 5% 20%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1{ 
+    color: #7c795d; 
+    font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin-bottom: 5%; 
+  }
+  
+  @media screen and (max-width: 750px) {
+    .main-container {
+        margin: 5% 5%;
+    }
+  }
