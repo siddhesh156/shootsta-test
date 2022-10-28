@@ -66,4 +66,21 @@ describe("Search Dictionary Error", () => {
     expect(axios.get).toHaveReturnedWith(mockedResponse);
     await expect(fetchData("agf")).resolves.toEqual(mockedResponse);
   });
+
+  test("User can search test2 ", async () => {
+    render(<App />);
+    const mockedResponse = {
+      message:
+        "Sorry pal, we couldn't find definitions for the word you were looking for. You can try another word.",
+    };
+
+    axios.get.mockResolvedValue(mockedResponse);
+    axios.get = jest.fn(() => mockedResponse);
+    axios.get("https://api.dictionaryapi.dev/api/v2/entries/en/gfhg");
+    expect(axios.get).toHaveBeenCalledWith(
+      "https://api.dictionaryapi.dev/api/v2/entries/en/gfhg"
+    );
+    expect(axios.get).toHaveReturnedWith(mockedResponse);
+    await expect(fetchData("gfhg")).resolves.toEqual(mockedResponse);
+  });
 });
